@@ -6,6 +6,7 @@ const checkRecipeId = async (req, res, next) => {
         const existing = await db('recipes')
             .where('recipe_id', req.params.recipe_id)
             .first()
+            
         if(!existing) {
             next({ status: 404, message: `recipe with recipe_id ${req.params.recipe_id} not found` })
         } else {

@@ -1,12 +1,12 @@
 const express = require('express');
-const RecipeRouter = require('./recipe-router');
+const recipeRouter = require('./recipe-router');
 
 const server = express();
 
 server.use(express.json());
 
 
-server.use('./api/recipes', RecipeRouter);
+server.use('/api/recipes', recipeRouter);
 
 server.use('*', (req, res) => { //catchall needs to be at end
     res.json({ api: 'up' })

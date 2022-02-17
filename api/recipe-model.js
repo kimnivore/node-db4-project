@@ -5,8 +5,9 @@ function getRecipes() {
 }
 
 async function getRecipeById(recipe_id) {
-    return db('recipes');
-    // const result = await db()
+    const result = await db('recipes as r')
+        .where('recipe_id', recipe_id)
+    return result;
 }
 
 module.exports = {
